@@ -12,11 +12,12 @@ arch=('any')
 conflicts=()
 replaces=()
 backup=()
-md5sums=('c5f7dc52c96e606e403751a4c482d785')
-source=('https://raw.githubusercontent.com/FadeMind/archpkgbuilds/master/AUR/customized/wd719x-firmware/pciscsi.exe')
+sha256sums=('d310338eaaeae6db3673021c0ec2ec23b9cfb9f9b9d1eb8854d2d60b3a6490f9')
+source=('http://support.wdc.com/download/archive/pciscsi.exe')
 noextract=('pciscsi.exe')
 
 build() {
+        # https://www.kernel.org/doc/Documentation/scsi/wd719x.txt
         lha xi pciscsi.exe pci-scsi.exe
         lha xi pci-scsi.exe nt/wd7296a.sys
         dd if=wd7296a.sys of=wd719x-risc.bin bs=1 skip=5760 count=14336
